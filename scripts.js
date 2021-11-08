@@ -45,14 +45,12 @@ window.onload = function() {
 
 
 //new recipe object
-function Recipe(recipeName,contributorName,imageURL,ingredientsFilename,equipmentFilename,directionsFilename){
+function Recipe(recipeName,contributorName,imageURL){
   
   this.recipe = recipeName;
   this.contributor = contributorName;
   this.img = imageURL;
-  this.ingredients = ingredientsFilename;
-  this.equipment = equipmentFilename;
-  this.direction = directionsFilename;
+
   
   this.displayRecipe = function(){
     
@@ -60,39 +58,17 @@ function Recipe(recipeName,contributorName,imageURL,ingredientsFilename,equipmen
     document.querySelector("#Contributor").innerHTML = this.contributor;
     document.querySelector("#browniepic").style.backgroundImage = "url(" + this.img + ")";
     
-  loadFileInto(this.ingredients,"#box1 ul");
-  loadFileInto(this.equipment,"#box2 ul");
-  loadFileInto(this.direction,"#box3 ol");  
+  loadFileInto(this.recipe,"box1","#box1 ul");
+  loadFileInto(this.recipe,"box2","#box2 ul");
+  loadFileInto(this.recipe,"box3","#box3 ol");
   }
   
-  this.displayRecipe = function(){
-    
-    document.querySelector("#browniepic h1").innerHTML = this.recipe;
-    document.querySelector("#Contributor").innerHTML = this.contributor;
-    document.querySelector("#browniepic").style.backgroundImage = "url(" + this.img + ")";
-    
-  loadFileInto(this.ingredients,"#box1 ul");
-  loadFileInto(this.equipment,"#box2 ul");
-  loadFileInto(this.direction,"#box3 ol");  
-    
-  }
-  
-   this.displayRecipe = function(){
-    
-    document.querySelector("#browniepic h1").innerHTML = this.recipe;
-    document.querySelector("#Contributor").innerHTML = this.contributor;
-    document.querySelector("#browniepic").style.backgroundImage = "url(" + this.img + ")";
-    
-  loadFileInto(this.ingredients,"#box1 ul");
-  loadFileInto(this.equipment,"#box2 ul");
-  loadFileInto(this.direction,"#box3 ol");  
-    
-  }
+
   
 }
 
 
-BrookeBombshellBrownie = new Recipe("Brooke's Bombshell Brownies","Roselynne Sambisa","Images/brownie.jpg","ingredients.html","equipment.html","directions.html");
+BrookeBombshellBrownie = new Recipe("Brooke's Bombshell Brownies","Roselynne Sambisa","Images/brownie.jpg");
 ChocolateChipCookies = new Recipe("Chocolate Chip Cookies","Aida Must","ImagesA/chocolate.jpg","ingredientsA.html","equipmentA.html","directionsA.html");
 MrsSiggSnickerdoodles = new Recipe("Mrs Sigg's Snickerdoodles","Theo McBurney","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1751192.jpg&w=596&h=596&c=sc&poi=face&q=85","ingredientsT.html","equipmentT.html","directionsT.html");
 
@@ -108,15 +84,17 @@ function loadFileInto(recipeName,listName, whereTo) {
 	ajax = new XMLHttpRequest();
   
   // 2. define the fromFile variable with the passed recipe name and list 
-  fromFile = "recipes.php?recipeName=" + recipeName + "&listName=" + listName;
+  fromFile = "recipes.php?recipeName=" + recipeName + "&recipeList=" + listName;
 
-	// 2. defines the GET/POST method, the source, and the async value of the AJAX object
+  
+	// 3. defines the GET/POST method, the source, and the async value of the AJAX object
 	ajax.open("GET", fromFile, true);
 
-	// 3. provides code to do something in response to the AJAX request
+	// 4. provides code to do something in response to the AJAX request
 	ajax.onreadystatechange = function() {
 
 		if ((this.readyState == 4) && (this.status == 200)) { // if .readyState is 4, the process is done; and if .status is 200, there were no HTTP errors
+
 
 			document.querySelector(whereTo).innerHTML = this.responseText; // insert received output directly into the chosen DOM object
 
@@ -128,7 +106,7 @@ function loadFileInto(recipeName,listName, whereTo) {
 
 	} // end ajax.onreadystatechange function
 
-	// 4. let's go -- initiate request and process the responses
+	// 5. let's go -- initiate request and process the responses
 	ajax.send();
 
 }

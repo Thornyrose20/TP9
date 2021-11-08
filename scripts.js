@@ -102,10 +102,13 @@ MrsSiggSnickerdoodles = new Recipe("Mrs Sigg's Snickerdoodles","Theo McBurney","
 // and insert them in the DOM object found with "whereTo" -- note this
 // uses document.querySelector, so use CSS notation on "whereTo"
 
-function loadFileInto(fromFile, whereTo) {
+function loadFileInto(recipeName,listName, whereTo) {
 
 	// 1. creating a new XMLHttpRequest object
 	ajax = new XMLHttpRequest();
+  
+  // 2. define the fromFile variable with the passed recipe name and list 
+  fromFile = "recipes.php?recipeName=" + recipeName + "&listName=" + listName;
 
 	// 2. defines the GET/POST method, the source, and the async value of the AJAX object
 	ajax.open("GET", fromFile, true);

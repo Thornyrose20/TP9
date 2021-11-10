@@ -19,9 +19,11 @@ if($name == "Brooke's Bombshell Brownies"){
   } else {
     echo "1";
   }
-    
+   
+  
   /* Aida's Recipe*/
-  elseif ($name == "Chocolate Chip Cookies"){
+  
+} elseif ($name == "Chocolate Chip Cookies"){
     
      if($list == "box1"){
     include "ingredientsA.html";
@@ -36,10 +38,11 @@ if($name == "Brooke's Bombshell Brownies"){
     echo "1";
   }
     
-  }
+ 
   
+
   /* Theo's Recipe */
-  elseif($name == "Mrs Sigg's Snickerdoodles") {
+} elseif($name == "Mrs Sigg's Snickerdoodles"){
     
      if($list == "box1"){
     include "ingredientsT.html";
@@ -54,7 +57,6 @@ if($name == "Brooke's Bombshell Brownies"){
     echo "1";
   }
     
-  }
   
   
   

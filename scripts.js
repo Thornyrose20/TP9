@@ -70,7 +70,7 @@ function Recipe(recipeName,contributorName,imageURL){
 
 BrookeBombshellBrownie = new Recipe("Brooke's Bombshell Brownies","Roselynne Sambisa","Images/brownie.jpg");
 ChocolateChipCookies = new Recipe("Chocolate Chip Cookies","Aida Must","ImagesA/chocolate.jpg");
-MrsSiggSnickerdoodles = new Recipe("Mrs Sigg's Snickerdoodles","Theo McBurney","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1751192.jpg&w=596&h=596&c=sc&poi=face&q=85","ingredientsT.html","equipmentT.html","directionsT.html");
+MrsSiggSnickerdoodles = new Recipe("Mrs Sigg's Snickerdoodles","Theo McBurney","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1751192.jpg&w=596&h=596&c=sc&poi=face&q=85");
 
 
 
